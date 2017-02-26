@@ -1,0 +1,59 @@
+// Dropdown menu styling
+div.list {
+  width: 100%;
+  padding: $gutter;
+  padding-bottom: 0;
+  z-index: 999;
+  font-size: 1em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  p {
+    background-color: $grey;
+    padding: $gutter;
+    position: relative;
+    // Before and after used on the paragraph to create an arrow down
+    &:before, &:after {
+      content: '';
+      width: $gutter;
+      height: 2px;
+      background-color: darken($grey, 50%);
+      position: absolute;
+      right: $gutter + 3px;
+      top: 50%;
+      transition: transform 0.5s ease;
+    }
+    &:before {
+      right: $gutter * 2 - 3px;
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+  // Set the unordered list max-height to 0 px to be able to animate it, keeping the right size of the content, opposed to manipulate the actual height
+  ul {
+    transition: all 0.5s ease;
+    overflow: hidden;
+    max-height: 0px;
+    margin-top: -1px;
+    li {
+      margin-top: -1px;
+      padding: $gutter;
+      background-color: $grey;
+    }
+  }
+  // Set behaviours for when the menu is open through a class of open. Rotate the arrow and set the max-height of the ul, all having transition property for CSS animations
+  p.open {
+    &:before {
+      transform: rotate(-45deg);
+    }
+    &:after {
+      transform: rotate(45deg);
+    }
+  }
+  ul.open {
+    max-height: 500px;
+  }
+}

@@ -1,0 +1,64 @@
+// Set the size of the two main areas in the card
+div.image, div.stats {
+  width: 100%;
+  height: 50%;
+  position: relative;
+}
+
+// Set sizes for the two main images in the div
+div.image {
+  position: relative;
+  padding: $gutter;
+  background-color: #FFF;
+  img.player-image {
+    height: 75%;
+    position: absolute;
+    bottom: 0;
+    left: $gutter;
+  }
+  div.team-logo {
+    // Set border radius only on the lower corners of the image to avoid some logos being cut on top corners
+    border-radius: 0 0 100% 100%;
+    width: 100px;
+    height: 100px;
+    // Set position absolute to have it lower than its parent and exactly in the middle
+    position: absolute;
+    bottom: -50px;
+    right: $gutter;
+    background: #fff;
+    z-index: 998;
+  }
+}
+
+// Be able to scroll content overflowing the parent div
+div.stats {
+  overflow: scroll;
+  padding: $gutter;
+  background: $pink;
+  h1, h2 {
+    padding-bottom: $gutter;
+  }
+  h1 {
+    font-size: $name-font-size;
+    font-weight: 500;
+    color: $grey;
+  }
+  h2 {
+    font-size: $role-font-size;
+    font-weight: 400;
+    color: $grey;
+  }
+  ul {
+    li {
+      // Set lis colors and transition on hover
+      padding: $gutter/1.2;
+      background-color: $grey;
+      border: 1px solid $pink;
+      color: $purple;
+      transition: transform 0.5s ease;
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}

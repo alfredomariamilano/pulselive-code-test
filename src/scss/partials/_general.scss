@@ -1,0 +1,52 @@
+// Set box sizing to border box to keep proportions with padding and border
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+// Set general style on html and body tag
+html, body {
+  background-color: $grey;
+  font-family: 'Roboto', sans-serif;
+  font-size: $general-font-size;
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  // Hide scrollbar on IE 10+ and Mozilla browsers
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+
+// Hide scrollbar on Webkit browsers
+::-webkit-scrollbar {
+  display: none;
+}
+
+// Main container for the player cards, always centered
+div.container {
+  width: 100%;
+  max-width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+
+  li {
+    span {
+      float: right;
+    }
+  }
+
+  // Transition on opacity for all elements with class fade
+  .fade {
+    transition: opacity 0.5s ease;
+  }
+
+  // On screens bigger than 800px wide, give a fixed width to the player card
+  @media (min-width: 800px) {
+    width: 350px;
+  }
+}
